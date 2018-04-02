@@ -18,6 +18,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
+import javax.ws.rs.QueryParam;
 import org.postgres.utils.UserService;
 import org.postgres.entities.Usuarios;
 import org.postgres.utils.CustomResponse;
@@ -56,6 +57,19 @@ public class UsuariosFacadeREST extends AbstractFacade<Usuarios> {
         return Response.ok(respuesta).build();
         
     }*/
+    @GET
+    @Path("/verificar-usuario")
+    @Produces({"application/json"})
+    public Usuarios login(@QueryParam("email") String email) throws SQLException{
+    
+           Usuarios usuario = new Usuarios();
+           usuario = serviceUser.VerificarUsuario(email);
+           return usuario;
+
+    }
+    
+    /*
+    
     @POST
     @Path("/verificar-usuario")
     @Consumes({"application/json"})
@@ -67,7 +81,7 @@ public class UsuariosFacadeREST extends AbstractFacade<Usuarios> {
         usuario = serviceUser.VerificarUsuario(user.getEmail());
         return usuario;
     }
-    
+    */
 
     @POST
     @Override

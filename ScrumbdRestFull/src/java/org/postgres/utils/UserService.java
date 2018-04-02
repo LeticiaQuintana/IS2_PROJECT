@@ -23,7 +23,7 @@ public class UserService {
         {
 		try {
 			Class.forName("org.postgresql.Driver");
-			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/scrumdb","postgres", "memise");
+			Connection con = DriverManager.getConnection("jdbc:postgresql://localhost:5432/scrumbd","postgres", "ara");
 			return con;
 		} catch (ClassNotFoundException | SQLException ex) {
 			System.out.println("Database.getConnection() Error -->"
